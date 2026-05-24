@@ -1,6 +1,5 @@
 import { compile, createTrack, runDeclarative, runProcedural, useCompiled, useRef } from 'procedural-to-declarative'
 import { AbsoluteFill, Composition, interpolateColors, spring, useCurrentFrame, useVideoConfig } from 'remotion'
-import './index.css'
 
 const ExampleComparison: React.FC = () => {
   const track = createTrack()
