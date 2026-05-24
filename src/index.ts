@@ -1,12 +1,7 @@
-/**
-  @module
- */
+// This is your entry file! Refer to it when you render:
+// npx remotion render <entry-file> HelloWorld out/video.mp4
 
-import { mySubmodule } from './submodule'
+import { registerRoot } from 'remotion'
+import { RemotionRoot } from './Root'
 
-/**
- * Lorem ipsum.
- */
-export const myPackage = (taco = ''): string => `${taco} from my package`
-
-export { mySubmodule }
+registerRoot(RemotionRoot)

@@ -40,22 +40,9 @@
     "test": "vitest --coverage --coverage.include=src",
     "watch": "npm-run-all --race --parallel *:watch",
     "update": "npm-check-updates -u",
-    "semantic-release": "semantic-release"
-  },
-  "devDependencies": {
-    "@antfu/eslint-config": "9.0.0",
-    "@tsconfig/strictest": "2.0.8",
-    "@types/node": "24.12.4",
-    "@typescript-eslint/eslint-plugin": "8.59.4",
-    "@vitest/browser": "4.1.6",
-    "@vitest/browser-playwright": "4.1.6",
-    "@vitest/coverage-v8": "4.1.6",
-    "eslint": "10.4.0",
-    "npm-run-all2": "9.0.0",
-    "playwright": "1.60.0",
-    "typedoc": "0.28.19",
-    "typescript": "6.0.3",
-    "vitest": "4.1.6"
+    "semantic-release": "semantic-release",
+    "remotion": "remotion",
+    "dev": "remotion studio"
   },
   "typedocOptions": {
     "entryPoints": [
@@ -83,5 +70,29 @@
       ],
       "@semantic-release/github"
     ]
+  },
+  "dependencies": {
+    "procedural-to-declarative": "^1.0.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "remotion": "^4.0.465"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "9.0.0",
+    "@remotion/cli": "^4.0.465",
+    "@tsconfig/strictest": "2.0.8",
+    "@types/node": "24.12.4",
+    "@types/react": "^19.2.15",
+    "@types/web": "^0.0.349",
+    "@typescript-eslint/eslint-plugin": "8.59.4",
+    "@vitest/browser": "4.1.6",
+    "@vitest/browser-playwright": "4.1.6",
+    "@vitest/coverage-v8": "4.1.6",
+    "eslint": "10.4.0",
+    "npm-run-all2": "9.0.0",
+    "playwright": "1.60.0",
+    "typedoc": "0.28.19",
+    "typescript": "6.0.3",
+    "vitest": "4.1.6"
   }
 }

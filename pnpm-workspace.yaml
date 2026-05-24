@@ -1,6 +1,7 @@
 shellEmulator: true
 
 trustPolicy: no-downgrade
-
 onlyBuiltDependencies:
+  - esbuild
   - msw
+  - procedural-to-declarative
