@@ -1,6 +1,6 @@
-import { useMemo } from 'react'
 import { compile, createTrack, runDeclarative, runProcedural, useCompiled, useRef } from 'procedural-to-declarative'
-import { interpolate, AbsoluteFill, Composition, interpolateColors, Series, spring, useCurrentFrame, useVideoConfig } from 'remotion'
+import { useMemo } from 'react'
+import { AbsoluteFill, Composition, interpolate, interpolateColors, Series, spring, useCurrentFrame, useVideoConfig } from 'remotion'
 
 export const ExampleCompOriginal: React.FC = () => {
   const frame = useCurrentFrame()
@@ -50,6 +50,7 @@ const ExampleCompProcedural: React.FC = () => {
       yield runDeclarative(track, (progress) => {
         color.current = interpolateColors(progress, [0, 2], ['#e6a700', '#e13238'])
       }, 2).wait()
+      color.current = '#e13238'
       yield runDeclarative(track, (progress) => {
         x.current = 300 * spring({ frame: progress * fps, fps })
       }, 1).wait()
