@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { compile, createTrack, runDeclarative, runProcedural, useCompiled, useRef } from 'procedural-to-declarative'
 import { interpolate, AbsoluteFill, Composition, interpolateColors, Series, spring, useCurrentFrame, useVideoConfig } from 'remotion'
 
@@ -40,20 +41,23 @@ export const ExampleCompOriginal: React.FC = () => {
 }
 
 const ExampleCompProcedural: React.FC = () => {
-  const track = createTrack()
-  const color = useRef<string>(track, '#e6a700')
-  const x = useRef<number>(track, 0)
   const { fps } = useVideoConfig()
-  function* animation() {
-    yield runDeclarative(track, (progress) => {
-      color.current = interpolateColors(progress, [0, 2], ['#e6a700', '#e13238'])
-    }, 2).wait()
-    yield runDeclarative(track, (progress) => {
-      x.current = 300 * spring({ frame: progress * fps, fps })
-    }, 1).wait()
-  }
-  runProcedural(track, animation())
-  const compiled = compile(track)
+  const { track, color, x, compiled } = useMemo(() => {
+    const track = createTrack()
+    const color = useRef<string>(track, '#e6a700')
+    const x = useRef<number>(track, 0)
+    function* animation() {
+      yield runDeclarative(track, (progress) => {
+        color.current = interpolateColors(progress, [0, 2], ['#e6a700', '#e13238'])
+      }, 2).wait()
+      yield runDeclarative(track, (progress) => {
+        x.current = 300 * spring({ frame: progress * fps, fps })
+      }, 1).wait()
+    }
+    runProcedural(track, animation())
+    const compiled = compile(track)
+    return { track, color, x, compiled }
+  }, [fps])
   const frame = useCurrentFrame()
   useCompiled(track, compiled, frame / fps)
   return (
