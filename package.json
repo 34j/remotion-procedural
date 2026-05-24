@@ -1,0 +1,87 @@
+{
+  "name": "remotion-procedural",
+  "type": "commonjs",
+  "version": "0.0.0",
+  "description": "Minimalistic npm package template with 📦🚀semantic-release + Commitizen, CodeCov, Renovate, pre-commit + EsLint (✗🐶Husky + Lint Staged), ⚡️Vitest (✗👢Jest), 📖TypeDoc + Github Pages support. Note that this is a generated sample package.",
+  "author": {
+    "name": "34j"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/34j/remotion-procedural",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/34j/remotion-procedural.git"
+  },
+  "bugs": {
+    "url": "https://github.com/34j/remotion-procedural/issues"
+  },
+  "keywords": [
+    "boilerplate",
+    "template",
+    "typescript",
+    "vitest",
+    "pre-commit",
+    "semantic-release",
+    "typedoc"
+  ],
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist/src/**/*"
+  ],
+  "scripts": {
+    "build:watch": "tsc --watch --project tsconfig.json",
+    "preinstall": "npx only-allow pnpm",
+    "build": "tsc --project tsconfig.json",
+    "lint": "eslint --fix",
+    "typedoc": "typedoc",
+    "typedoc:watch": "typedoc --watch",
+    "test:watch": "vitest --watch --coverage --coverage.include=src",
+    "test": "vitest --coverage --coverage.include=src",
+    "watch": "npm-run-all --race --parallel *:watch",
+    "update": "npm-check-updates -u",
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "9.0.0",
+    "@tsconfig/strictest": "2.0.8",
+    "@types/node": "24.12.4",
+    "@typescript-eslint/eslint-plugin": "8.59.4",
+    "@vitest/browser": "4.1.6",
+    "@vitest/browser-playwright": "4.1.6",
+    "@vitest/coverage-v8": "4.1.6",
+    "eslint": "10.4.0",
+    "npm-run-all2": "9.0.0",
+    "playwright": "1.60.0",
+    "typedoc": "0.28.19",
+    "typescript": "6.0.3",
+    "vitest": "4.1.6"
+  },
+  "typedocOptions": {
+    "entryPoints": [
+      "src"
+    ],
+    "tsconfig": "tsconfig.json",
+    "headings": false
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md",
+            "README.md",
+            "package.json",
+            "package-lock.json"
+          ]
+        }
+      ],
+      "@semantic-release/github"
+    ]
+  }
+}

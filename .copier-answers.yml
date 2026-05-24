@@ -1,0 +1,8 @@
+# Changes here will be overwritten by Copier
+_commit: v1.7.12-117-gcb677f3
+_src_path: gh:34j/create-minimal-package
+create_minimal_package_installation_ids: '62553233'
+github_user: 34j
+project_name: remotion-procedural
+setup_github: true
+setup_npm: false
