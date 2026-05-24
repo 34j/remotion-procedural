@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       procedural-to-declarative:
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.0.1
+        version: 1.0.1
       react:
         specifier: ^19.2.6
         version: 19.2.6
@@ -2305,8 +2305,8 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  procedural-to-declarative@1.0.0:
-    resolution: {integrity: sha512-xy0L1IgYqp2xxYkbG91sg6G0bGx1e1LCa8vZ3+FFSYOB4SFlVPZhPdaDuWV9tVnM/Myu1afnh9+4yhp6VvhDGw==}
+  procedural-to-declarative@1.0.1:
+    resolution: {integrity: sha512-YPScSsMkDQl2uL+RtWN7RznYlRxa3fFYRIfcR5txV7FadpfCxFQYwp83Lmeq3kQPMa00Ee9gc5kczWNlFN82ow==}
 
   prompts@2.4.2:
     resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
@@ -5314,7 +5314,7 @@ snapshots:
 
   prettier@3.8.1: {}
 
-  procedural-to-declarative@1.0.0: {}
+  procedural-to-declarative@1.0.1: {}
 
   prompts@2.4.2:
     dependencies:

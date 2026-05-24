@@ -72,7 +72,7 @@
     ]
   },
   "dependencies": {
-    "procedural-to-declarative": "^1.0.0",
+    "procedural-to-declarative": "^1.0.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "remotion": "^4.0.465"

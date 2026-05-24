@@ -10,15 +10,16 @@ const ExampleComparison: React.FC = () => {
   const { fps } = useVideoConfig()
   function* animation() {
     yield runDeclarative(track, (progress) => {
-      interpolateColors(progress, [0, 2], ['#e6a700', '#00a7e6'])
+      color.current = interpolateColors(progress, [0, 2], ['#e6a700', '#00a7e6'])
     }, 2).wait()
     yield runDeclarative(track, (progress) => {
-      spring({ frame: 1 - progress, fps: 1 })
+      x.current = spring({ frame: 1 - progress, fps: 1 })
     }, 1).wait()
   }
   runProcedural(track, animation())
   const compiled = compile(track)
   useCompiled(track, compiled, frame / fps)
+  console.log('x', x.current)
   return (
     <AbsoluteFill
       style={{
