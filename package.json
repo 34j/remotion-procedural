@@ -42,7 +42,8 @@
     "update": "npm-check-updates -u",
     "semantic-release": "semantic-release",
     "remotion": "remotion",
-    "dev": "remotion studio"
+    "dev": "remotion studio",
+    "render": "remotion render src/index.tsx"
   },
   "typedocOptions": {
     "entryPoints": [

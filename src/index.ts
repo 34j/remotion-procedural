@@ -7,6 +7,4 @@ import { runInterpolate } from './runInterpolate'
 
 registerRoot(RemotionRoot)
 
-module.exports = {
-  runInterpolate,
-}
+export { runInterpolate }
