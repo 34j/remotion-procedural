@@ -23,7 +23,7 @@ export const RemotionRoot: React.FC = () => {
   return (
     <>
       <Composition
-        id="OddFrameAudio"
+        id="RemotionProcedural"
         component={ExampleCompCombined}
         durationInFrames={270}
         fps={30}

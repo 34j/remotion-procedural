@@ -11,11 +11,11 @@ export const ExampleProcedural: React.FC = () => {
     function* animation() {
       yield runDeclarative(track, (progress) => {
         color.current = interpolateColors(progress, [0, 2], ['#e6a700', '#e13238'])
-      }, 2).wait()
+      }, 2)
       color.current = '#e13238'
       yield runDeclarative(track, (progress) => {
         x.current = 300 * spring({ frame: progress * fps, fps })
-      }, 1).wait()
+      }, 1)
     }
     runProcedural(track, animation())
     const compiled = compile(track)

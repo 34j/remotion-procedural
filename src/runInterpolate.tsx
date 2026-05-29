@@ -6,7 +6,7 @@ export function runInterpolate<TRef extends number>(track: ReturnType<typeof cre
     const from = ref.current
     yield runDeclarative(track, (progress) => {
       ref.current = ((to - from) * progress / duration + from) as TRef
-    }, duration).wait()
+    }, duration)
     ref.current = to
   }
   return runProcedural(track, animation())
