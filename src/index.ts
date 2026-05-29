@@ -3,5 +3,10 @@
 
 import { registerRoot } from 'remotion'
 import { RemotionRoot } from './Root'
+import { runInterpolate } from './runInterpolate'
 
 registerRoot(RemotionRoot)
+
+module.exports = {
+  runInterpolate,
+}
