@@ -1,6 +1,37 @@
+minimumReleaseAgeExclude:
+  - '@remotion/bundler@4.0.469'
+  - '@remotion/cli@4.0.469'
+  - '@remotion/compositor-darwin-arm64@4.0.469'
+  - '@remotion/compositor-darwin-x64@4.0.469'
+  - '@remotion/compositor-linux-arm64-gnu@4.0.469'
+  - '@remotion/compositor-linux-arm64-musl@4.0.469'
+  - '@remotion/compositor-linux-x64-gnu@4.0.469'
+  - '@remotion/compositor-linux-x64-musl@4.0.469'
+  - '@remotion/compositor-win32-x64-msvc@4.0.469'
+  - '@remotion/licensing@4.0.469'
+  - '@remotion/media-parser@4.0.469'
+  - '@remotion/media-utils@4.0.469'
+  - '@remotion/player@4.0.469'
+  - '@remotion/renderer@4.0.469'
+  - '@remotion/streaming@4.0.469'
+  - '@remotion/studio-server@4.0.469'
+  - '@remotion/studio-shared@4.0.469'
+  - '@remotion/studio@4.0.469'
+  - '@remotion/timeline-utils@4.0.469'
+  - '@remotion/web-renderer@4.0.469'
+  - '@remotion/zod-types@4.0.469'
+  - procedural-to-declarative@1.1.0
+  - remotion@4.0.469
 shellEmulator: true
 
 trustPolicy: no-downgrade
-
+trustPolicyExclude:
+  - ast-v8-to-istanbul
+  - tinyexec
 onlyBuiltDependencies:
+  - esbuild
   - msw
+  - procedural-to-declarative
+allowBuilds:
+  esbuild: true
+  procedural-to-declarative: true
