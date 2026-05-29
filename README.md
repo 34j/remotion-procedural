@@ -97,6 +97,8 @@ export const ExampleProcedural: React.FC = () => {
 pnpm render
 ```
 
+https://github.com/user-attachments/assets/0ffd999e-3960-488f-9ecc-a3f1db503e5f
+
 [build-img]:https://github.com/34j/remotion-procedural/actions/workflows/release.yml/badge.svg
 [build-url]:https://github.com/34j/remotion-procedural/actions/workflows/release.yml
 [downloads-img]:https://img.shields.io/npm/dt/remotion-procedural
