@@ -17,7 +17,7 @@
 
 ---
 
-TODO: Project Description.
+Procedural animation for Remotion.
 
 ## Installation
 
@@ -27,11 +27,74 @@ npm install remotion-procedural
 
 ## Usage
 
-```ts
-import { myPackage } from 'remotion-procedural'
+```tsx
+import { compile, createTrack, runDeclarative, runProcedural, useCompiled, useRef } from 'procedural-to-declarative'
+import { useMemo } from 'react'
+import { AbsoluteFill, interpolateColors, spring, useCurrentFrame, useVideoConfig } from 'remotion'
 
-myPackage('hello')
-// => 'hello from my package'
+export const ExampleProcedural: React.FC = () => {
+  const { fps } = useVideoConfig()
+
+  // Memorize the compiled track
+  const { track, color, x, compiled } = useMemo(() => {
+    const track = createTrack()
+
+    // Refs to hold the current values of parameters that will be animated
+    const color = useRef<string>(track, '#e6a700')
+    const x = useRef<number>(track, 0)
+
+    // Procedural function that defines the animation sequence
+    function* animation() {
+      // First, change the color
+      yield runDeclarative(track, (progress) => {
+        color.current = interpolateColors(progress, [0, 2], ['#e6a700', '#e13238'])
+      }, 2)
+      color.current = '#e13238'
+
+      // Then, move the circle horizontally
+      yield runDeclarative(track, (progress) => {
+        x.current = 300 * spring({ frame: progress * fps, fps })
+      }, 1)
+    }
+
+    // Top-level call
+    runProcedural(track, animation())
+
+    // Compile the track
+    const compiled = compile(track)
+    return { track, color, x, compiled }
+  }, [fps])
+
+  // Use the compiled track at current time
+  // Ref.current is (re)set to the desired value at the current time
+  const frame = useCurrentFrame()
+  useCompiled(track, compiled, frame / fps)
+
+  // Return the React component with parameters
+  // specified using `Ref.current`
+  return (
+    <AbsoluteFill
+      style={{
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <div
+        style={{
+          width: 200,
+          height: 200,
+          borderRadius: 100,
+          backgroundColor: color.current,
+          transform: `translateX(${x.current}px)`,
+        }}
+      />
+    </AbsoluteFill>
+  )
+}
+```
+
+```shell
+pnpm render
 ```
 
 [build-img]:https://github.com/34j/remotion-procedural/actions/workflows/release.yml/badge.svg

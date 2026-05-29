@@ -43,7 +43,7 @@
     "semantic-release": "semantic-release",
     "remotion": "remotion",
     "dev": "remotion studio",
-    "render": "remotion render src/index.tsx"
+    "render": "remotion render RemotionProcedural"
   },
   "typedocOptions": {
     "entryPoints": [
